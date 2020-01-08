@@ -18,7 +18,7 @@
 	<parent>
 		<artifactId>samples</artifactId>
 		<groupId>org.ops4j.pax.web</groupId>
-		<version>7.2.10.tesb1</version>
+		<version>7.2.10</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>org.ops4j.pax.web.samples</groupId>
@@ -80,7 +80,7 @@
 						<Web-ContextPath>war-jsf-sample</Web-ContextPath>
 						<Require-Bundle>
 							org.apache.myfaces.core.api,
-							org.apache.myfaces.core.impl 
+							org.apache.myfaces.core.impl
 						</Require-Bundle>
 						<_removeheaders>
 							Include-Resource,

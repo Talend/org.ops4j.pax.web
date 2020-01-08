@@ -19,13 +19,13 @@
 	<parent>
 		<artifactId>samples</artifactId>
 		<groupId>org.ops4j.pax.web</groupId>
-		<version>7.2.10.tesb1</version>
+		<version>7.2.10</version>
 	</parent>
 	<groupId>org.ops4j.pax.web.samples</groupId>
 	<artifactId>jsp-filter</artifactId>
   <packaging>war</packaging>
   <name>OPS4J Pax Web - Samples - WAR Extender - JSP - Filter</name>
-  
+
   	<properties>
 		<bundle.symbolicName>org.ops4j.pax.web.samples.jsp-filter</bundle.symbolicName>
 		<bundle.namespace>org.ops4j.pax.web.samples</bundle.namespace>
@@ -54,9 +54,9 @@
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
-		
+
 	</dependencies>
-	
+
 	<build>
 		<!-- <finalName>myfaces-test-helloworld-osgi-pax-web</finalName> -->
 		<plugins>

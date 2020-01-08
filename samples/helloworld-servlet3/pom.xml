@@ -18,12 +18,12 @@
 	<parent>
 		<artifactId>samples</artifactId>
 		<groupId>org.ops4j.pax.web</groupId>
-		<version>7.2.10.tesb1</version>
+		<version>7.2.10</version>
 	</parent>
 	<groupId>org.ops4j.pax.web.samples</groupId>
 	<artifactId>helloworld-servlet3</artifactId>
 	<packaging>war</packaging>
-	
+
 	<properties>
 		<bundle.symbolicName>org.ops4j.pax.web.servlet3.samples.war</bundle.symbolicName>
 		<bundle.namespace>org.ops4j.pax.web.servlet3.samples.war</bundle.namespace>
@@ -37,7 +37,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.osgi</groupId>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<!-- 
-	
+	<!--
+
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
-	 
+
 	    http://www.apache.org/licenses/LICENSE-2.0
-	 
+
 	Unless required by applicable law or agreed to in writing, software
 	distributed under the License is distributed on an "AS IS" BASIS,
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-	
+
 	 -->
 
 	<modelVersion>4.0.0</modelVersion>
@@ -27,7 +27,7 @@
 
 	<groupId>org.ops4j.pax</groupId>
 	<artifactId>web</artifactId>
-	<version>7.2.10.tesb1</version>
+	<version>7.2.10</version>
 	<packaging>pom</packaging>
 
 	<name>OPS4J Pax Web</name>
@@ -43,10 +43,10 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:https://github.com/ops4j/org.ops4j.pax.web</connection>
-		<developerConnection>scm:git:https://github.com/ops4j/org.ops4j.pax.web</developerConnection>
-		<url>http://github.com/ops4j/org.ops4j.pax.web/tree/pax-web-7.2.x</url>
-		<tag>web-7.2.10.tesb1</tag>
+		<connection>scm:git:https://github.com/Talend/org.ops4j.pax.web</connection>
+		<developerConnection>scm:git:https://github.com/Talend/org.ops4j.pax.web</developerConnection>
+		<url>http://github.com/Talend/org.ops4j.pax.web</url>
+		<tag>HEAD</tag>
 	</scm>
 
 	<developers>
@@ -99,6 +99,9 @@
 	</developers>
 
 	<properties>
+		<upstream.version>7.2.10</upstream.version>
+		<pax-web-jetty.tesb.version>7.2.10.tesb1</pax-web-jetty.tesb.version>
+		<pax-web-features.tesb.version>7.2.10.tesb1</pax-web-features.tesb.version>
 		<dependency.asm.version>7.1</dependency.asm.version>
 		<dependency.atinject.version>1.0</dependency.atinject.version>
 		<dependency.base.version>1.5.0</dependency.base.version>
@@ -338,7 +341,7 @@
 							</goals>
 							<configuration>
 								<versions>
-									<pax-web.osgi.version>${project.version}</pax-web.osgi.version>
+									<pax-web.osgi.version>${upstream.version}</pax-web.osgi.version>
 								</versions>
 							</configuration>
 						</execution>
@@ -349,7 +352,7 @@
 					<version>2.8</version>
 					<extensions>true</extensions>
 				</plugin>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
+				<!--This plugin's configuration is used to store Eclipse m2e settings
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -630,52 +633,52 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-api</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-spi</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-jsp</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-runtime</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-jetty</artifactId>
-				<version>${project.version}</version>
+				<version>${pax-web-jetty.tesb.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-jetty-bundle</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-tomcat</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-undertow</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-extender-war</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-extender-whiteboard</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<!-- Provided dependencies -->
 			<dependency>
@@ -867,7 +870,7 @@
 				<artifactId>primefaces</artifactId>
 				<version>${dependency.primefaces.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-core</artifactId>
@@ -1358,6 +1361,46 @@
                 </plugins>
             </build>
         </profile>
+		<profile>
+			<id>resolve-pom</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.paradoxical</groupId>
+						<artifactId>resolved-pom-maven-plugin</artifactId>
+						<version>1.0</version>
+						<configuration>
+							<properties>
+								<revision>${revision}</revision>
+								<upstream.version>${upstream.version}</upstream.version>
+
+								<!-- ADD HERE ALL THE CUSTOM PROPERTIES declared in the above <properties> part -->
+								<!-- something like :
+                                <my.custom.property>${my.custom.property}</my.custom.property>
+                                -->
+								<pax-web-jetty.tesb.version>${pax-web-jetty.tesb.version}</pax-web-jetty.tesb.version>
+								<pax-web-features.tesb.version>${pax-web-features.tesb.version}</pax-web-features.tesb.version>
+							</properties>
+						</configuration>
+						<executions>
+							<execution>
+								<id>resolve-my-pom</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>resolve-pom</goal>
+								</goals>
+								<configuration>
+									<resolvedPomFile>.resolved-pom.xml</resolvedPomFile>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
 			<id>code-analysis</id>
 			<activation>

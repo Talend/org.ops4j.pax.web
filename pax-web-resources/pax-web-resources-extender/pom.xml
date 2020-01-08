@@ -19,19 +19,19 @@
 	<parent>
 		<groupId>org.ops4j.pax.web</groupId>
 		<artifactId>pax-web-resources</artifactId>
-		<version>7.2.10.tesb1</version>
+		<version>7.2.10</version>
 	</parent>
 	<artifactId>pax-web-resources-extender</artifactId>
 
 	<name>OPS4J Pax Web - Resources-Extender</name>
 	<description>Provides OSGi-aware Resources according to Servlet 3.0</description>
-	
+
 
 	<dependencies>
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-resources-api</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>

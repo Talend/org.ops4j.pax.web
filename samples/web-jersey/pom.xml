@@ -18,18 +18,18 @@
 	<parent>
 		<groupId>org.ops4j.pax.web</groupId>
 		<artifactId>samples</artifactId>
-		<version>7.2.10.tesb1</version>
+		<version>7.2.10</version>
 	</parent>
 	<artifactId>web-jersey</artifactId>
 	<name>OPS4J Pax Web - Samples - HTTP Service - Jersey Rest Sample</name>
 	<groupId>org.ops4j.pax.web.samples</groupId>
-	
+
 	<properties>
         <bundle.symbolicName>org.ops4j.pax.web.samples.web-jersey</bundle.symbolicName>
         <bundle.namespace>org.ops4j.pax.web.samples</bundle.namespace>
     </properties>
-	
-	
+
+
 	<dependencies>
 		<!-- Jersey -->
         <dependency>
@@ -75,7 +75,7 @@
         <dependency>
         	<groupId>org.ops4j.pax.web</groupId>
         	<artifactId>pax-web-api</artifactId>
-        	<version>${project.version}</version>
+        	<version>${upstream.version}</version>
         	<scope>provided</scope>
         </dependency>
         <dependency>
@@ -90,7 +90,7 @@
             <scope>provided</scope>
         </dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>

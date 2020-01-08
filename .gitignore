@@ -5,6 +5,7 @@ target
 *.iws
 *.ipr
 *.iml
+.resolved-pom.xml
 bin
 .idea
 \#*#
