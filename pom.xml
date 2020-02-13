@@ -42,17 +42,6 @@
 		<url>https://ops4j1.jira.com/projects/PAXWEB</url>
 	</issueManagement>
 
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>file://${user.home}/.m2/repository</url>
-		</snapshotRepository>
-		<repository>
-			<id>ossrh</id>
-			<url>file://${user.home}/.m2/repository</url>
-		</repository>
-	</distributionManagement>
-
 	<scm>
 		<connection>scm:git:https://github.com/Talend/org.ops4j.pax.web</connection>
 		<developerConnection>scm:git:https://github.com/Talend/org.ops4j.pax.web</developerConnection>
@@ -196,13 +185,6 @@
 	</properties>
 
 	<build>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-file</artifactId>
-				<version>3.3.4</version>
-			</extension>
-		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -324,7 +306,7 @@
 					<groupId>org.sonatype.plugins</groupId>
 					<artifactId>nexus-staging-maven-plugin</artifactId>
 					<configuration>
-						<skipStaging>true</skipStaging>
+						<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
 					</configuration>
 				</plugin>
 				<plugin>
