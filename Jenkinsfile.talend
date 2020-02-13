@@ -1,6 +1,6 @@
 def GIT_URL = 'https://github.com/Talend/org.ops4j.pax.web.git'
 def DEFAULT_BRANCH = 'tesb/org.ops4j.pax.web-7.2.10.x'
-def DEFAULT_MVN_MODULES = 'pax-web-jetty,pax-web-features'
+def DEFAULT_MVN_MODULES = ':pax-web-jetty,:pax-web-features'
 
 pipeline {
 
