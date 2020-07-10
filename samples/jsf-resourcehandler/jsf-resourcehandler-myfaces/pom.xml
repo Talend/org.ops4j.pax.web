@@ -35,7 +35,7 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-resources-jsf</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

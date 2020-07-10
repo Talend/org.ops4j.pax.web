@@ -82,7 +82,7 @@
 								<supportedProjectType>war</supportedProjectType>
 							</supportedProjectTypes>
 							<instructions>
-								<_wab>${project.build.directory}/war-jsf22-${project.version}</_wab>
+								<_wab>${project.build.directory}/war-jsf22-${upstream.version}</_wab>
 								<Web-ContextPath>/war-jsf22</Web-ContextPath>
 
 								<Embed-Directory>WEB-INF/lib</Embed-Directory>
