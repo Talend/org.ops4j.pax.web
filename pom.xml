@@ -100,6 +100,7 @@
 
 	<properties>
 		<upstream.version>6.0.11</upstream.version>
+		<pax-web-features.features.tesb.version>6.0.11.tesb1</pax-web-features.features.tesb.version>
 
 		<dependency.asm.version>5.0.2</dependency.asm.version>
 		<dependency.atinject.version>1.0</dependency.atinject.version>
@@ -314,6 +315,7 @@
 							<!-- something like :
                             <my.custom.property>${my.custom.property}</my.custom.property>
                             -->
+							<pax-web-features.features.tesb.version>${pax-web-features.features.tesb.version}</pax-web-features.features.tesb.version>
 						</properties>
 					</configuration>
 					<executions>
