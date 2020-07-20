@@ -100,6 +100,8 @@
 
 	<properties>
 		<upstream.version>6.0.9</upstream.version>
+		<pax-web-features.features.tesb.version>6.0.9.tesb1</pax-web-features.features.tesb.version>
+		<commons-collections.tesb.version>3.2.2</commons-collections.tesb.version>
 
 		<dependency.asm.version>5.0.2</dependency.asm.version>
 		<dependency.atinject.version>1.0</dependency.atinject.version>
@@ -179,6 +181,10 @@
 			<plugin>
 				<groupId>io.paradoxical</groupId>
 				<artifactId>resolved-pom-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -301,6 +307,8 @@
 							<!-- something like :
                             <my.custom.property>${my.custom.property}</my.custom.property>
                             -->
+							<pax-web-features.features.tesb.version>${pax-web-features.features.tesb.version}</pax-web-features.features.tesb.version>
+							<commons-collections.tesb.version>${commons-collections.tesb.version}</commons-collections.tesb.version>
 						</properties>
 					</configuration>
 					<executions>
@@ -313,6 +321,23 @@
 							<configuration>
 								<resolvedPomFile>.resolved-pom.xml</resolvedPomFile>
 							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<configuration>
+						<skipLocalStaging>true</skipLocalStaging>
+						<skipRemoteStaging>true</skipRemoteStaging>
+					</configuration>
+					<executions>
+						<execution>
+							<id>skip</id>
+							<goals>
+								<!-- to avoid replacement of maven-deploy-plugin -->
+								<goal>deploy-staged</goal>
+							</goals>
 						</execution>
 					</executions>
 				</plugin>
