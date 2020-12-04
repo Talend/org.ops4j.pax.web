@@ -43,10 +43,10 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:https://github.com/ops4j/org.ops4j.pax.web</connection>
-		<developerConnection>scm:git:https://github.com/ops4j/org.ops4j.pax.web</developerConnection>
-		<url>http://github.com/ops4j/org.ops4j.pax.web/tree/pax-web-7.2.x</url>
-		<tag>web-7.2.12</tag>
+		<connection>scm:git:https://github.com/Talend/org.ops4j.pax.web.git</connection>
+		<developerConnection>scm:git:https://github.com/Talend/org.ops4j.pax.web.git</developerConnection>
+		<url>https://github.com/Talend/org.ops4j.pax.web</url>
+		<tag>HEAD</tag>
 	</scm>
 
 	<developers>
@@ -100,6 +100,8 @@
 
 	<properties>
         <upstream.version>7.2.12</upstream.version>
+        <pax.web.features.tesb.version>7.2.12.tesb1</pax.web.features.tesb.version>
+        <javax.mail.tesb.version>1.6.1</javax.mail.tesb.version>
 
 		<dependency.asm.version>7.2</dependency.asm.version>
 		<dependency.atinject.version>1.1</dependency.atinject.version>
@@ -315,6 +317,8 @@
                             <!-- something like :
                             <my.custom.property>${my.custom.property}</my.custom.property>
                             -->
+                            <pax.web.features.tesb.version>${pax.web.features.tesb.version}</pax.web.features.tesb.version>
+                            <javax.mail.tesb.version>${javax.mail.tesb.version}</javax.mail.tesb.version>
                         </properties>
                     </configuration>
                     <executions>
@@ -503,6 +507,12 @@
 
 	<dependencyManagement>
 		<dependencies>
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>${javax.mail.tesb.version}</version>
+                <optional>true</optional>
+            </dependency>
 			<dependency>
 				<groupId>org.ops4j.base</groupId>
 				<artifactId>ops4j-base-lang</artifactId>
