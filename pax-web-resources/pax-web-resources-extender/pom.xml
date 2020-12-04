@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-resources-api</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
