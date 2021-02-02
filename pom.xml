@@ -300,9 +300,30 @@
                 <groupId>io.paradoxical</groupId>
                 <artifactId>resolved-pom-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<configuration>
+						<skipLocalStaging>true</skipLocalStaging>
+						<skipRemoteStaging>true</skipRemoteStaging>
+					</configuration>
+					<executions>
+						<execution>
+							<id>skip</id>
+							<goals>
+								<!-- to avoid replacement of maven-deploy-plugin -->
+								<goal>deploy-staged</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
                 <plugin>
                     <groupId>io.paradoxical</groupId>
                     <artifactId>resolved-pom-maven-plugin</artifactId>
