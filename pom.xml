@@ -102,7 +102,7 @@
 		<upstream.version>7.2.12</upstream.version>
 		<pax.web.features.tesb.version>7.2.12.tesb3</pax.web.features.tesb.version>
 		<javax.mail.tesb.version>1.6.1</javax.mail.tesb.version>
-		<commons-codec.tesb.version>1.5</commons-codec.tesb.version>
+		<commons-codec.tesb.version>1.15</commons-codec.tesb.version>
 
 		<dependency.asm.version>7.2</dependency.asm.version>
 		<dependency.atinject.version>1.1</dependency.atinject.version>
