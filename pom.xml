@@ -100,7 +100,7 @@
 
 	<properties>
 		<upstream.version>7.2.19</upstream.version>
-		<pax-web-features.tesb.version>7.2.19.tesb1</pax-web-features.tesb.version>
+		<pax-web-features.tesb.version>7.2.19.tesb2</pax-web-features.tesb.version>
 		<commons-codec.tesb.version>1.15</commons-codec.tesb.version>
 
 		<dependency.asm.version>8.0.1</dependency.asm.version>
