@@ -341,6 +341,7 @@
                             -->
                             <pax.web.features.tesb.version>${pax.web.features.tesb.version}</pax.web.features.tesb.version>
                             <javax.mail.tesb.version>${javax.mail.tesb.version}</javax.mail.tesb.version>
+                            <commons-codec.tesb.version>${commons-codec.tesb.version}</commons-codec.tesb.version>
                         </properties>
                     </configuration>
                     <executions>
