@@ -1,4 +1,4 @@
 @Library('esb') _
  
 Fork(
-        MVN_MODULES: ''
+        MVN_MODULES: 'org.ops4j.pax.web:pax-web-features'
