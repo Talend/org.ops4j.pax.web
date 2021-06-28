@@ -16,11 +16,11 @@
 	
 	 -->
 
-<features name="org.ops4j.pax.web-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+<features name="org.ops4j.pax.web-${upstream.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
 
-    <feature name="pax-web-core" description="Provide Core pax-web bundles" version="${project.version}">
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-api/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-spi/${project.version}</bundle>
+    <feature name="pax-web-core" description="Provide Core pax-web bundles" version="${upstream.version}">
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-api/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-spi/${upstream.version}</bundle>
 
         <bundle dependency="true">mvn:org.ow2.asm/asm/${dependency.asm.version}</bundle>
         <bundle dependency="true">mvn:org.ow2.asm/asm-util/${dependency.asm.version}</bundle>
@@ -77,7 +77,7 @@
         </capability>
     </feature>
 
-    <feature name="pax-jetty-http2" version="${project.version}" description="Optional additional feature to run Jetty with SPDY">
+    <feature name="pax-jetty-http2" version="${upstream.version}" description="Optional additional feature to run Jetty with SPDY">
     	<details>
     		Please beware, for this feature to run properly you'll need to add the alpn-boot.jar to the
     		lib/ext folder of Karaf in some cases of your JVM.
@@ -97,8 +97,8 @@
         <bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-hpack/${dependency.jetty.version}</bundle>
     </feature>
 
-    <feature name="pax-http-jetty" version="${project.version}">
-        <configfile finalname="${karaf.etc}/jetty.xml">mvn:org.ops4j.pax.web/pax-web-features/${project.version}/xml/jettyconfig</configfile>
+    <feature name="pax-http-jetty" version="${upstream.version}">
+        <configfile finalname="${karaf.etc}/jetty.xml">mvn:org.ops4j.pax.web/pax-web-features/${upstream.version}/xml/jettyconfig</configfile>
         <config name="org.ops4j.pax.web">
             org.osgi.service.http.port=${env:ORG_OPS4J_PAX_WEB_ORG_OSGI_SERVICE_HTTP_PORT:-8181}
             javax.servlet.context.tempdir=${karaf.data}/pax-web-jsp
@@ -108,8 +108,8 @@
         <feature version="[9.3,10.0)">pax-jetty</feature>
 
         <feature>pax-web-core</feature>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jetty/${project.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jetty/${upstream.version}</bundle>
 
         <capability>
             pax.http.provider;provider:=jetty
@@ -121,7 +121,7 @@
         </conditional>
     </feature>
 
-    <feature name="pax-http" version="${project.version}" description="Implementation of the OSGI HTTP Service">
+    <feature name="pax-http" version="${upstream.version}" description="Implementation of the OSGI HTTP Service">
         <details>Allows to publish servlets using pax web and jetty</details>
         <feature dependency="true" version="[7.2,7.3)">pax-http-jetty</feature>
         <requirement>
@@ -129,12 +129,12 @@
         </requirement>
     </feature>
 
-    <feature name="pax-http-whiteboard" description="Provide HTTP Whiteboard pattern support" version="${project.version}">
+    <feature name="pax-http-whiteboard" description="Provide HTTP Whiteboard pattern support" version="${upstream.version}">
         <feature version="[7.2,7.3)">pax-http</feature>
         <bundle dependency="true" start-level="30">mvn:${dependency.jdt.groupId}/${dependency.jdt.artifactId}/${dependency.jdt.version}</bundle>
         <bundle start-level="30" dependency="true">mvn:javax.el/javax.el-api/${dependency.el-api.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jsp/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/${project.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jsp/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/${upstream.version}</bundle>
 
         <capability>
             osgi.contract;osgi.contract=JavaEl;version:Version="3";uses:="javax.el",
@@ -143,19 +143,19 @@
         </capability>
     </feature>
 
-    <feature name="pax-war" description="Provide support of a full WebContainer" version="${project.version}">
+    <feature name="pax-war" description="Provide support of a full WebContainer" version="${upstream.version}">
         <config name="org.ops4j.pax.url.war">
             org.ops4j.pax.url.war.importPaxLoggingPackages=true
         </config>
         <feature version="[7.2,7.3)">pax-http-whiteboard</feature>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-descriptor/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-war/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-deployer/${project.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-descriptor/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-war/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-extender-whiteboard/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-deployer/${upstream.version}</bundle>
         <bundle start-level="30">mvn:org.ops4j.pax.url/pax-url-war/${pax.url.version}/jar/uber</bundle>
     </feature>
 
-    <feature name="pax-http-tomcat" description="Provide Tomcat support" version="${project.version}">
+    <feature name="pax-http-tomcat" description="Provide Tomcat support" version="${upstream.version}">
         <config name="org.ops4j.pax.url.war">
             org.ops4j.pax.url.war.importPaxLoggingPackages=true
         </config>
@@ -194,9 +194,9 @@
         <bundle dependency="true" start-level="30">mvn:javax.websocket/javax.websocket-api/${dependency.websocket.version}</bundle>
 
         <feature>pax-web-core</feature>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-tomcat/${project.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jsp/${project.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-tomcat/${upstream.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jsp/${upstream.version}</bundle>
 
         <capability>
             pax.http.provider;provider:=tomcat
@@ -210,12 +210,12 @@
         </conditional>
     </feature>
 
-    <feature name="pax-war-tomcat" version="${project.version}">
+    <feature name="pax-war-tomcat" version="${upstream.version}">
         <feature version="[7.2,7.3)">pax-http-tomcat</feature>
         <feature version="[7.2,7.3)">pax-war</feature>
     </feature>
 
-    <feature name="pax-jsf-support" version="${project.version}">
+    <feature name="pax-jsf-support" version="${upstream.version}">
         <feature version="[7.2,7.3)">pax-war</feature>
         <bundle dependency="true">mvn:javax.enterprise/cdi-api/1.2</bundle>
         <bundle dependency="true">mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
@@ -235,10 +235,10 @@
         </capability>
     </feature>
 
-    <feature name="pax-jsf-resources-support" description="Provide sharing of resources according to Servlet 3.0 for OSGi bundles and JSF" version="${project.version}">
+    <feature name="pax-jsf-resources-support" description="Provide sharing of resources according to Servlet 3.0 for OSGi bundles and JSF" version="${upstream.version}">
         <feature version="[7.2,7.3)">pax-jsf-support</feature>
-        <bundle dependency="true">mvn:org.ops4j.pax.web/pax-web-resources-extender/${project.version}</bundle>
-        <bundle>mvn:org.ops4j.pax.web/pax-web-resources-jsf/${project.version}</bundle>
+        <bundle dependency="true">mvn:org.ops4j.pax.web/pax-web-resources-extender/${upstream.version}</bundle>
+        <bundle>mvn:org.ops4j.pax.web/pax-web-resources-jsf/${upstream.version}</bundle>
     </feature>
 
     <feature name="undertow" version="${dependency.undertow-core.version}">
@@ -258,9 +258,9 @@
         </capability>
     </feature>
 
-    <feature name="pax-http-undertow" version="${project.version}">
-        <configfile finalname="${karaf.etc}/undertow.properties">mvn:org.ops4j.pax.web/pax-web-features/${project.version}/properties/undertowconfig</configfile>
-        <configfile finalname="${karaf.etc}/undertow.xml">mvn:org.ops4j.pax.web/pax-web-features/${project.version}/xml/undertowconfig</configfile>
+    <feature name="pax-http-undertow" version="${upstream.version}">
+        <configfile finalname="${karaf.etc}/undertow.properties">mvn:org.ops4j.pax.web/pax-web-features/${upstream.version}/properties/undertowconfig</configfile>
+        <configfile finalname="${karaf.etc}/undertow.xml">mvn:org.ops4j.pax.web/pax-web-features/${upstream.version}/xml/undertowconfig</configfile>
         <config name="org.ops4j.pax.web">
             org.osgi.service.http.port=${env:ORG_OPS4J_PAX_WEB_ORG_OSGI_SERVICE_HTTP_PORT:-8181}
             javax.servlet.context.tempdir=${karaf.data}/pax-web-jsp
@@ -272,8 +272,8 @@
         <feature version="[7.2,7.3)">pax-http</feature>
 
         <feature>pax-web-core</feature>
-        <bundle>mvn:org.ops4j.pax.web/pax-web-runtime/${project.version}</bundle>
-        <bundle>mvn:org.ops4j.pax.web/pax-web-undertow/${project.version}</bundle>
+        <bundle>mvn:org.ops4j.pax.web/pax-web-runtime/${upstream.version}</bundle>
+        <bundle>mvn:org.ops4j.pax.web/pax-web-undertow/${upstream.version}</bundle>
 
         <capability>
             pax.http.provider;provider:=undertow

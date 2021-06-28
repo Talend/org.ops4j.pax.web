@@ -97,7 +97,7 @@
 								<supportedProjectType>war</supportedProjectType>
 							</supportedProjectTypes>
 							<instructions>
-								<_wab>${project.build.directory}/war-jsf22-cdi-${project.version}</_wab>
+								<_wab>${project.build.directory}/war-jsf22-cdi-${upstream.version}</_wab>
 								<Web-ContextPath>/war-jsf22-cdi</Web-ContextPath>
 
 								<Embed-Directory>WEB-INF/lib</Embed-Directory>

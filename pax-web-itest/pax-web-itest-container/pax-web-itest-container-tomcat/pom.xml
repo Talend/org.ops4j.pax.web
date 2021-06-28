@@ -50,14 +50,14 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web.itest</groupId>
 			<artifactId>pax-web-itest-base</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<scope>test</scope>
 		</dependency>
 
         <dependency>
             <groupId>org.ops4j.pax.web.itest</groupId>
             <artifactId>pax-web-itest-common</artifactId>
-            <version>${project.version}</version>
+            <version>${upstream.version}</version>
             <scope>test</scope>
         </dependency>
 		
@@ -683,7 +683,7 @@
 					</excludes>
 					<systemPropertyVariables>
 						<coverage.command>${jcoverage.command}</coverage.command>
-						<ProjectVersion>${project.version}</ProjectVersion>
+						<ProjectVersion>${upstream.version}</ProjectVersion>
 						<MyFacesVersion>${jsf-myfaces.version}</MyFacesVersion>
 					</systemPropertyVariables>
 					<argLine>${jcoverage.command}</argLine>

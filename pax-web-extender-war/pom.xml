@@ -113,7 +113,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>pax-web-jsp</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<optional>true</optional>
 			<scope>provided</scope>
 		</dependency>
@@ -122,7 +122,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>pax-web-descriptor</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<scope>provided</scope>
 		</dependency>
 

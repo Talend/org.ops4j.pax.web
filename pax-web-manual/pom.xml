@@ -70,14 +70,14 @@
 								<toc-position>left</toc-position>
 								<toclevels>3</toclevels>
 								<icons>font</icons>
-								<docVersion>${project.version}</docVersion>
+								<docVersion>${upstream.version}</docVersion>
 								<sectanchors>true</sectanchors>
 								<idprefix />
 								<idseparator>-</idseparator>
 								<docinfo1>true</docinfo1>
 								<linkcss>false</linkcss>
 								<sourcedir>../../../target/test-sources</sourcedir>
-								<docVersion>${project.version}</docVersion>
+								<docVersion>${upstream.version}</docVersion>
 								<tomcatVersion>${dependency.tomcat.version}</tomcatVersion>
 								<jettyVersion>${dependency.jetty.version}</jettyVersion>
 								<undertowVersion>${dependency.undertow-core.version}</undertowVersion>
@@ -139,7 +139,7 @@
 			<artifactId>pax-web-itest-container-jetty</artifactId>
 			<classifier>test-sources</classifier>
 			<scope>provided</scope>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 		</dependency>
 	</dependencies>
 </project>
