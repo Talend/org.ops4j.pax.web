@@ -100,7 +100,8 @@
 
 	<properties>
 		<upstream.version>6.0.11</upstream.version>
-		<pax-web-features.features.tesb.version>6.0.11.tesb1</pax-web-features.features.tesb.version>
+		<pax-web-features.features.tesb.version>6.0.11.tesb2</pax-web-features.features.tesb.version>
+		<jetty-io.tesb.version>9.3.24.v20180605tesb1</jetty-io.tesb.version>
 
 		<dependency.asm.version>5.0.2</dependency.asm.version>
 		<dependency.atinject.version>1.0</dependency.atinject.version>
@@ -320,6 +321,7 @@
                             <my.custom.property>${my.custom.property}</my.custom.property>
                             -->
 							<pax-web-features.features.tesb.version>${pax-web-features.features.tesb.version}</pax-web-features.features.tesb.version>
+							<jetty-io.tesb.version>${jetty-io.tesb.version}</jetty-io.tesb.version>
 						</properties>
 					</configuration>
 					<executions>
