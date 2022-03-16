@@ -45,14 +45,14 @@
         <dependency>
             <groupId>org.ops4j.pax.web.itest</groupId>
             <artifactId>pax-web-itest-base</artifactId>
-            <version>${project.version}</version>
+            <version>${upstream.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.ops4j.pax.web.itest</groupId>
             <artifactId>pax-web-itest-common</artifactId>
-            <version>${project.version}</version>
+            <version>${upstream.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -317,14 +317,14 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web.samples</groupId>
 			<artifactId>war-simple</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<type>war</type>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web.samples</groupId>
 			<artifactId>war-introspection</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<type>war</type>
 			<scope>test</scope>
 		</dependency>
@@ -712,7 +712,7 @@
 						<include>**/*IntegrationTest.java</include>
 					</includes>
 					<systemPropertyVariables>
-						<ProjectVersion>${project.version}</ProjectVersion>
+						<ProjectVersion>${upstream.version}</ProjectVersion>
 						<MyFacesVersion>${jsf-myfaces.version}</MyFacesVersion>
 						<coverage.command>${jcoverage.command}</coverage.command>
 						<!-- to configure pax-exam with pax.exam.system=default which gives us more control over installed bundles -->

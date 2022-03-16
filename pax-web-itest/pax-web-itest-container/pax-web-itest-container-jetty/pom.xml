@@ -46,14 +46,14 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web.itest</groupId>
 			<artifactId>pax-web-itest-base</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<scope>test</scope>
 		</dependency>
 
         <dependency>
             <groupId>org.ops4j.pax.web.itest</groupId>
             <artifactId>pax-web-itest-common</artifactId>
-            <version>${project.version}</version>
+            <version>${upstream.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -451,7 +451,7 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web.samples</groupId>
 			<artifactId>war-simple</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<type>war</type>
 			<scope>test</scope>
 		</dependency>
@@ -863,7 +863,7 @@
 						<!-- <exclude>**/WarJSFPrimefacesIntegrationTest.java</exclude> -->
 					</excludes>
 					<systemPropertyVariables>
-						<ProjectVersion>${project.version}</ProjectVersion>
+						<ProjectVersion>${upstream.version}</ProjectVersion>
 						<MyFacesVersion>${jsf-myfaces.version}</MyFacesVersion>
 						<coverage.command>${jcoverage.command}</coverage.command>
 						<alpn-boot>${settings.localRepository}/org/mortbay/jetty/alpn/alpn-boot/${alpn-version}/alpn-boot-${alpn-version}.jar</alpn-boot>

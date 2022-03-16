@@ -135,77 +135,77 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>helloworld-hs</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>helloworld-servlet3</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-ds</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>authentication</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>
 					org.ops4j.pax.web.samples.web-fragment
 				</groupId>
 				<artifactId>fragment</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-resources-api</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-resources-extender</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-resources-jsf</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-resourcehandler-myfaces</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-resourcehandler-resourcebundle</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-resourcehandler-resourcebundle-override</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-jsf22-cdi</artifactId>
 				<type>war</type>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty</groupId>
@@ -231,7 +231,7 @@
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-extender-war</artifactId>
 				<classifier>uber</classifier>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.jetty.osgi</groupId>
@@ -515,7 +515,7 @@
 					org.ops4j.pax.web.samples.web-fragment
 				</groupId>
 				<artifactId>war</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.exam</groupId>

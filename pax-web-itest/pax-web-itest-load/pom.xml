@@ -38,7 +38,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>pax-web-itest-base</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 		</dependency>
 
 		<!-- pax-exam -->
@@ -64,14 +64,14 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web.samples</groupId>
 			<artifactId>helloworld-hs</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<type>bundle</type>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web.samples</groupId>
 			<artifactId>whiteboard</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<type>bundle</type>
 			<scope>test</scope>
 		</dependency>
@@ -426,7 +426,7 @@
 						</goals>
 						<configuration>
 							<systemPropertyVariables>
-								<ProjectVersion>${project.version}</ProjectVersion>
+								<ProjectVersion>${upstream.version}</ProjectVersion>
 								<MyFacesVersion>${jsf-myfaces.version}</MyFacesVersion>
 							</systemPropertyVariables>
 						</configuration>
