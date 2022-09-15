@@ -39,7 +39,7 @@
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>pax-web-itest-base</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -93,7 +93,7 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-manual</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<type>war</type>
 			<scope>test</scope>
 		</dependency>
@@ -154,7 +154,7 @@
 		<dependency>
 			<groupId>org.ops4j.pax.web</groupId>
 			<artifactId>pax-web-features</artifactId>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 			<scope>test</scope>
 			<type>xml</type>
 			<classifier>features</classifier>
@@ -259,7 +259,7 @@
 			<groupId>org.ops4j.pax.web.samples</groupId>
 			<artifactId>whiteboard-blueprint</artifactId>
 			<scope>provided</scope>
-			<version>${project.version}</version>
+			<version>${upstream.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ops4j.pax.web.samples.web-fragment</groupId>
@@ -426,7 +426,7 @@
 						<include>**/*KarafTest.java</include>
 					</includes>
 					<systemPropertyVariables>
-						<ProjectVersion>${project.version}</ProjectVersion>
+						<ProjectVersion>${upstream.version}</ProjectVersion>
 						<MyFacesVersion>${jsf-myfaces.version}</MyFacesVersion>
 						<KarafVersion>${karaf.version}</KarafVersion>
 						<pax.exam.framework>${pax.exam.framework}</pax.exam.framework>

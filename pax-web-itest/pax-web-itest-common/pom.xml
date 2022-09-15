@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.ops4j.pax.web.itest</groupId>
             <artifactId>pax-web-itest-base</artifactId>
-            <version>${project.version}</version>
+            <version>${upstream.version}</version>
             <scope>provided</scope>
         </dependency>
 		<dependency>
