@@ -100,9 +100,9 @@
 
 	<properties>
 		<upstream.version>7.2.30</upstream.version>
-		<pax.web.features.tesb.version>7.2.30.tesb2</pax.web.features.tesb.version>
+		<pax.web.features.tesb.version>7.2.30.tesb3</pax.web.features.tesb.version>
 		<pax.url.tesb.version>2.6.11</pax.url.tesb.version>
-		<jetty.tesb.version>9.4.49.v20220914</jetty.tesb.version>
+		<jetty.tesb.version>9.4.51.v20230217</jetty.tesb.version>
 		<dependency.paxurl.tesb.version>${pax.url.tesb.version}</dependency.paxurl.tesb.version>
 		<dependency.jetty.tesb.version>${jetty.tesb.version}</dependency.jetty.tesb.version>
 		<dependency.asm.version>9.1</dependency.asm.version>
