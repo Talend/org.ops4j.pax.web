@@ -43,10 +43,10 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:git@github.com:ops4j/org.ops4j.pax.web.git</connection>
-		<developerConnection>scm:git:git@github.com:ops4j/org.ops4j.pax.web.git</developerConnection>
-		<url>https://github.com/ops4j/org.ops4j.pax.web/tree/main</url>
-		<tag>web-8.0.22</tag>
+		<connection>scm:git:https://github.com/Talend/org.ops4j.pax.web.git</connection>
+		<developerConnection>scm:git:https://github.com/Talend/org.ops4j.pax.web.git</developerConnection>
+		<url>https://github.com/Talend/org.ops4j.pax.web</url>
+		<tag>HEAD</tag>
 	</scm>
 
 	<developers>
@@ -99,6 +99,8 @@
 	</developers>
 
 	<properties>
+		<upstream.version>8.0.22</upstream.version>
+		<pax.web.features.tesb.version>8.0.22.20231013</pax.web.features.tesb.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -108,7 +110,7 @@
 		<bundle.symbolic.name>${project.groupId}.${project.artifactId}</bundle.symbolic.name>
 
 		<!-- OSGi version will be cleaned later by maven-bundle-plugin -->
-		<pax-web.osgi.version>${project.version}</pax-web.osgi.version>
+		<pax-web.osgi.version>${upstream.version}</pax-web.osgi.version>
 
 		<!-- Tells Sonar to use JaCoCo as the code coverage tool -->
 <!--		<sonar.skippedModules>pax-web-itest-load</sonar.skippedModules>-->
@@ -318,6 +320,54 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<configuration>
+						<skipLocalStaging>true</skipLocalStaging>
+						<skipRemoteStaging>true</skipRemoteStaging>
+					</configuration>
+					<executions>
+						<execution>
+							<id>skip</id>
+							<goals>
+								<!-- to avoid replacement of maven-deploy-plugin -->
+								<goal>deploy-staged</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>io.paradoxical</groupId>
+					<artifactId>resolved-pom-maven-plugin</artifactId>
+					<version>1.0</version>
+					<configuration>
+						<properties>
+							<revision>${revision}</revision>
+							<upstream.version>${upstream.version}</upstream.version>
+
+							<!-- ADD HERE ALL THE CUSTOM PROPERTIES declared in the above <properties> part -->
+							<!-- something like :
+                            <my.custom.property>${my.custom.property}</my.custom.property>
+                            -->
+							<pax.web.features.tesb.version>${pax.web.features.tesb.version}</pax.web.features.tesb.version>
+							<pax.url.tesb.version>${pax.url.tesb.version}</pax.url.tesb.version>
+							<dependency.paxurl.tesb.version>${dependency.paxurl.tesb.version}</dependency.paxurl.tesb.version>
+						</properties>
+					</configuration>
+					<executions>
+						<execution>
+							<id>resolve-my-pom</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>resolve-pom</goal>
+							</goals>
+							<configuration>
+								<resolvedPomFile>.resolved-pom.xml</resolvedPomFile>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 
 				<!-- Core plugins -->
 
@@ -491,7 +541,7 @@
 							</goals>
 							<configuration>
 								<versions>
-									<pax-web.osgi.version>${project.version}</pax-web.osgi.version>
+									<pax-web.osgi.version>${upstream.version}</pax-web.osgi.version>
 								</versions>
 							</configuration>
 						</execution>
@@ -608,6 +658,11 @@
 		</pluginManagement>
 
 		<plugins>
+
+			<plugin>
+				<groupId>io.paradoxical</groupId>
+				<artifactId>resolved-pom-maven-plugin</artifactId>
+			</plugin>
 
 			<!-- Core plugins -->
 
@@ -726,98 +781,98 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-api</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-spi</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-jsp</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-websocket</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-runtime</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web</groupId>-->
 <!--				<artifactId>pax-web-descriptor</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-jetty</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-jetty-bundle</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-tomcat-common</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-tomcat</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-tomcat-bundle</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-tomcat-websocket</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-undertow</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-undertow-websocket</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-undertow-bundle</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-extender-whiteboard</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-extender-war</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-manual</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-features</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>xml</type>
 				<classifier>features</classifier>
 			</dependency>
@@ -826,82 +881,82 @@
 				<!-- sample web elements and HttpClient used in tests -->
 				<groupId>org.ops4j.pax.web.itest</groupId>
 				<artifactId>pax-web-itest-utils</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<!-- just org.ops4j.pax.web.itest.AbstractControlledTestBase -->
 				<groupId>org.ops4j.pax.web.itest</groupId>
 				<artifactId>pax-web-itest-common</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<!-- all the Abstract*IntegrationTest classes derived in container-specific maven modules -->
 				<groupId>org.ops4j.pax.web.itest</groupId>
 				<artifactId>pax-web-itest-container-common</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-compatibility-servlet31</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-compatibility-cdi12</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-compatibility-el2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-compatibility-interceptor12</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-compatibility-annotation13</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-compatibility-jpa2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-compatibility-jaxrs2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-fragment-myfaces-inject</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-fragment-myfaces-spifly</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-resources-api</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-resources-extender</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-resources-jsf</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<!-- pax-web config samples -->
@@ -909,49 +964,49 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>config-fragment-tomcat</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>config-fragment-tomcat-vhosts</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>config-fragment-jetty</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>config-fragment-undertow-vhosts</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>auth-config-fragment-jetty</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>auth-config-fragment-tomcat</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>auth-config-fragment-undertow</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>limit-post-config-fragment-tomcat</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>limit-post-config-fragment-undertow</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<!-- pax-web internal samples -->
@@ -959,22 +1014,22 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>initializers</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>initializers-fragment1</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>initializers-fragment2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>pax-web-spi-fragment</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<!-- pax-web war samples -->
@@ -982,213 +1037,213 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>helloworld-servlet3</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-dispatch-jsp</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsp-filter</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-introspection</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-introspection</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<classifier>classes</classifier>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-introspection-bundle</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-simplest-osgi</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-simplest-javaee</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-servlet-jsp-file</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-simple</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-spring</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-spring-wired</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-required</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-requiring</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>simple-filter</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-http-methods</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-http2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>container-bundle-1</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>container-bundle-2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>container-bundle-3</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>container-fragment-1</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>container-fragment-2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>the-wab-fragment</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>the-wab-jar</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>the-wab-itself</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-vaadin08</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-vaadin08-spring</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-formauth</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>wab-container-context-config</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-limited-post</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-limited-post-fragment-tomcat</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-limited-post-fragment-undertow</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-jetty-web</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-websocket-jsr356</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-security</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
@@ -1197,12 +1252,12 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>helloworld-jsp</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>helloworld-jsp-noclasses</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<!-- pax-web jsf samples -->
@@ -1210,68 +1265,68 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-primefaces-embedded</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-primefaces-embedded-fragment</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-primefaces-commons1</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-primefaces-commons2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-primefaces-commons3</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-primefaces-jar</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-jsf23-wired</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-jsf23-embedded</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>war-dispatcher</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 				<type>war</type>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-resourcehandler-myfaces</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-resourcehandler-resourcebundle</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>jsf-resourcehandler-resourcebundle-override</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<!-- pax-web httpservice/webcontainer samples -->
@@ -1279,37 +1334,37 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>hs-helloworld</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>wc-helloworld</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>authentication</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>hs-jersey</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>http-custom-context</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>hs-1</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>hs-2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<!-- pax-web whiteboard samples -->
@@ -1317,127 +1372,127 @@
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-ds</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-ds-1603</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-ds-dynamic</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-blueprint</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-scopes</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-extended</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-1</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-2</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web.samples</groupId>
 				<artifactId>whiteboard-3</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples</groupId>-->
 <!--				<artifactId>whiteboard-ds-jaxrs</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples.web-fragment</groupId>-->
 <!--				<artifactId>fragment</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples</groupId>-->
 <!--				<artifactId>jsf-resourcehandler-myfaces</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples</groupId>-->
 <!--				<artifactId>jsf-resourcehandler-resourcebundle</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples</groupId>-->
 <!--				<artifactId>jsf-resourcehandler-resourcebundle-override</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples</groupId>-->
 <!--				<artifactId>war-jsf22-cdi</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--				<type>war</type>-->
 <!--			</dependency>-->
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples.web-fragment</groupId>-->
 <!--				<artifactId>war</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 <!--			<dependency>-->
 <!--				<groupId>org.ops4j.pax.web.samples</groupId>-->
 <!--				<artifactId>whiteboard-blueprint</artifactId>-->
-<!--				<version>${project.version}</version>-->
+<!--				<version>${upstream.version}</version>-->
 <!--			</dependency>-->
 
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-tomcat-keycloak18</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-jetty-keycloak</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-tomcat-keycloak</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>pax-web-undertow-keycloak</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>keycloak-common</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.ops4j.pax.web</groupId>
 				<artifactId>keycloak-osgi-adapter</artifactId>
-				<version>${project.version}</version>
+				<version>${upstream.version}</version>
 			</dependency>
 
 			<!-- OPS4J dependencies -->

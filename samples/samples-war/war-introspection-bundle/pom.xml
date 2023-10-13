@@ -73,7 +73,7 @@
 									javax.servlet;version="[3.1,5)",
 									javax.servlet.http;version="[3.1,5)"
 								</Import-Package>
-								<_wab>${project.build.directory}/war-introspection-bundle-${project.version}</_wab>
+								<_wab>${project.build.directory}/war-introspection-bundle-${upstream.version}</_wab>
 								<Web-ContextPath>/war-bundle</Web-ContextPath>
 								<Export-Package />
 								<Private-Package />

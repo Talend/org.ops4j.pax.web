@@ -36,7 +36,7 @@
 	<description>
 		Pax Web module creating a features xml file to deploy Pax Web components as features in Apache Karaf.
 		To use this feature enter the following in your Karaf shell -
-		feature:install mvn:org.ops4j.pax.web/features/${project.version}/xml/features
+		feature:install mvn:org.ops4j.pax.web/features/${upstream.version}/xml/features
 	</description>
 
 	<build>

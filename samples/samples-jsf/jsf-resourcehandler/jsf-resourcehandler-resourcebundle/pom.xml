@@ -41,7 +41,7 @@
 					<instructions>
 						<Bundle-SymbolicName>jsf-resourcehandler-resourcebundle</Bundle-SymbolicName>
 						<Require-Capability><![CDATA[
-							osgi.extender; filter:="(&(osgi.extender=pax.web.resources)(version=${version;====;${replace;${project.version};-;.}}))"
+							osgi.extender; filter:="(&(osgi.extender=pax.web.resources)(version=${version;====;${replace;${upstream.version};-;.}}))"
 						]]></Require-Capability>
 					</instructions>
 				</configuration>

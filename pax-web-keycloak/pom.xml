@@ -199,9 +199,9 @@
 <!--			</dependency>-->
 
 			<!-- bundles from keycloak-jaas feature (18.x) -->
-<!--			<bundle>mvn:org.keycloak/keycloak-osgi-jaas/${project.version}</bundle>-->
+<!--			<bundle>mvn:org.keycloak/keycloak-osgi-jaas/${upstream.version}</bundle>-->
 			<!-- extra bundle from keycloak-pax-http-undertow feature (18.x) -->
-<!--			<bundle>mvn:org.keycloak/keycloak-camel-undertow/${project.version}</bundle>-->
+<!--			<bundle>mvn:org.keycloak/keycloak-camel-undertow/${upstream.version}</bundle>-->
 
 		</dependencies>
 	</dependencyManagement>

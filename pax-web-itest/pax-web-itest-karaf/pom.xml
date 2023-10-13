@@ -55,7 +55,7 @@
 
 						<karaf.version>${dependency.org.apache.karaf}</karaf.version>
 						<myfaces.version>${dependency.org.apache.myfaces}</myfaces.version>
-						<pax-web.version>${project.version}</pax-web.version>
+						<pax-web.version>${upstream.version}</pax-web.version>
 						<commons-fileupload.version>${dependency.commons-fileupload}</commons-fileupload.version>
 						<commons-io.version>${dependency.commons-io}</commons-io.version>
 						<felix-webconsole.version>${dependency.org.apache.felix.webconsole}</felix-webconsole.version>

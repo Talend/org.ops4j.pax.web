@@ -61,7 +61,7 @@
 						<configuration>
 							<attributes>
 								<imagesdir>images</imagesdir>
-								<version>${project.version}</version>
+								<version>${upstream.version}</version>
 							</attributes>
 							<backend>html5</backend>
 							<doctype>article</doctype>
@@ -119,14 +119,14 @@
 <!--								<toc-position>left</toc-position>-->
 <!--								<toclevels>3</toclevels>-->
 <!--								<icons>font</icons>-->
-<!--								<docVersion>${project.version}</docVersion>-->
+<!--								<docVersion>${upstream.version}</docVersion>-->
 <!--								<sectanchors>true</sectanchors>-->
 <!--								<idprefix />-->
 <!--								<idseparator>-</idseparator>-->
 <!--								<docinfo1>true</docinfo1>-->
 <!--								<linkcss>false</linkcss>-->
 <!--								<sourcedir>../../../target/test-sources</sourcedir>-->
-<!--								<docVersion>${project.version}</docVersion>-->
+<!--								<docVersion>${upstream.version}</docVersion>-->
 <!--								<tomcatVersion>${dependency.org.apache.tomcat}</tomcatVersion>-->
 <!--								<jettyVersion>${dependency.org.eclipse.jetty}</jettyVersion>-->
 <!--								<undertowVersion>${dependency.io.undertow}</undertowVersion>-->

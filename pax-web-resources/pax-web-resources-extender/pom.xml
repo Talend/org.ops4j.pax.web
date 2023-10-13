@@ -63,7 +63,7 @@
 							org.ops4j.pax.web.resources.extender.internal
 						</Private-Package>
 						<Provide-Capability>
-							osgi.extender;osgi.extender="pax.web.resources";version:Version=${version;====;${replace;${project.version};-;.}}
+							osgi.extender;osgi.extender="pax.web.resources";version:Version=${version;====;${replace;${upstream.version};-;.}}
 						</Provide-Capability>
 					</instructions>
 				</configuration>
