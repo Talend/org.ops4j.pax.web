@@ -64,53 +64,53 @@
 		possible to install respective "pax-web-*-websockets" features to provide WebSockets (JSR 356) support
 	-->
 
-	<feature name="pax-web-jetty" description="Jetty 9 bundles" version="${dependency.org.eclipse.jetty}">
+	<feature name="pax-web-jetty" description="Jetty 9 bundles" version="${dependency.jetty.tesb.version}">
 		<bundle start-level="30" dependency="true">mvn:jakarta.servlet/jakarta.servlet-api/${dependency.jakarta.servlet-api}</bundle>
 		<bundle start-level="30" start="false">mvn:org.ops4j.pax.web/pax-web-compatibility-servlet31/${upstream.version}</bundle>
 
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-util/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-util-ajax/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-io/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-xml/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-server/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlet/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlets/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-security/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-continuation/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-jmx/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-jaas/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-util/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-util-ajax/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-io/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-xml/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-server/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlet/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlets/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-security/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-continuation/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-jmx/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-jaas/${dependency.jetty.tesb.version}</bundle>
 	</feature>
 
-	<feature name="pax-web-jetty-extras" description="Jetty 9 additional bundles" version="${dependency.org.eclipse.jetty}">
+	<feature name="pax-web-jetty-extras" description="Jetty 9 additional bundles" version="${dependency.jetty.tesb.version}">
 		<feature>pax-web-jetty</feature>
 		<feature>spifly</feature>
 
 <!--		<bundle start-level="30" dependency="true">mvn:jakarta.annotation/jakarta.annotation-api/${dependency.jakarta.annotation-api}</bundle>-->
 
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-rewrite/${dependency.org.eclipse.jetty}</bundle>
-<!--		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-annotations/${dependency.org.eclipse.jetty}</bundle>-->
-<!--		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-plus/${dependency.org.eclipse.jetty}</bundle>-->
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-openid/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-rewrite/${dependency.jetty.tesb.version}</bundle>
+<!--		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-annotations/${dependency.jetty.tesb.version}</bundle>-->
+<!--		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-plus/${dependency.jetty.tesb.version}</bundle>-->
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-openid/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/${dependency.jetty.tesb.version}</bundle>
 	</feature>
 
-	<feature name="pax-web-jetty-websockets" description="Jetty 9 bundles for Web Sockets support" version="${dependency.org.eclipse.jetty}">
+	<feature name="pax-web-jetty-websockets" description="Jetty 9 bundles for Web Sockets support" version="${dependency.jetty.tesb.version}">
 		<feature>pax-web-websockets</feature>
 		<feature>pax-web-jetty</feature>
 
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-server-impl/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-api/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-common/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-server/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-servlet/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-server-impl/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-api/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-common/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-server/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-servlet/${dependency.jetty.tesb.version}</bundle>
 	</feature>
 
-	<feature name="pax-web-jetty-http2" description="Jetty 9 bundles for HTTP/2 support" version="${dependency.org.eclipse.jetty}" >
+	<feature name="pax-web-jetty-http2" description="Jetty 9 bundles for HTTP/2 support" version="${dependency.jetty.tesb.version}" >
 		<details>
 			Before JDK 8u252 org.eclipse.jetty.alpn.ALPN from org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715
 			had to be present on boot classpath. It's no longer needed and on newer JDK 8 versions it's enough to
@@ -123,39 +123,39 @@
 		</details>
 		<feature>pax-web-jetty</feature>
 
-		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-hpack/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-common/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-server/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-hpack/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-common/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-server/${dependency.jetty.tesb.version}</bundle>
 	</feature>
 
-	<feature name="pax-web-jetty-http2-extras" description="Jetty 9 additional bundles for HTTP/2 support" version="${dependency.org.eclipse.jetty}" >
+	<feature name="pax-web-jetty-http2-extras" description="Jetty 9 additional bundles for HTTP/2 support" version="${dependency.jetty.tesb.version}" >
 		<feature>pax-web-jetty</feature>
 
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-hpack/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-common/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-http-client-transport/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-hpack/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-common/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.http2/http2-http-client-transport/${dependency.jetty.tesb.version}</bundle>
 	</feature>
 
-	<feature name="pax-web-jetty-http2-jdk8" description="Jetty 9 bundles for HTTP/2 support (JDK8)" version="${dependency.org.eclipse.jetty}" >
+	<feature name="pax-web-jetty-http2-jdk8" description="Jetty 9 bundles for HTTP/2 support (JDK8)" version="${dependency.jetty.tesb.version}" >
 		<feature>pax-web-jetty</feature>
 
-		<bundle start-level="30">mvn:org.eclipse.jetty.alpn/alpn-api/${dependency.org.eclipse.jetty.alpn}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-server/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-openjdk8-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-openjdk8-server/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.alpn/alpn-api/${dependency.jetty.tesb.version.alpn}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-server/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-openjdk8-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-openjdk8-server/${dependency.jetty.tesb.version}</bundle>
 	</feature>
 
-	<feature name="pax-web-jetty-http2-jdk9" description="Jetty 9 bundles for HTTP/2 support (JDK9+)" version="${dependency.org.eclipse.jetty}" >
+	<feature name="pax-web-jetty-http2-jdk9" description="Jetty 9 bundles for HTTP/2 support (JDK9+)" version="${dependency.jetty.tesb.version}" >
 		<feature>pax-web-jetty</feature>
 
-		<bundle start-level="30">mvn:org.eclipse.jetty.alpn/alpn-api/${dependency.org.eclipse.jetty.alpn}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-server/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-java-client/${dependency.org.eclipse.jetty}</bundle>
-		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-java-server/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.alpn/alpn-api/${dependency.jetty.tesb.version.alpn}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-server/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-java-client/${dependency.jetty.tesb.version}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty/jetty-alpn-java-server/${dependency.jetty.tesb.version}</bundle>
 	</feature>
 
 	<feature name="pax-web-http-jetty" description="Http Service implementation using Jetty 9" version="${upstream.version}">

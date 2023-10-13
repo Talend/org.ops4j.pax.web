@@ -30,6 +30,7 @@
 	<groupId>org.ops4j.pax.web</groupId>
 	<artifactId>pax-web-features</artifactId>
 	<packaging>pom</packaging>
+	<version>${revision}</version>
 
 	<name>OPS4J Pax Web - Features</name>
 
@@ -38,6 +39,9 @@
 		To use this feature enter the following in your Karaf shell -
 		feature:install mvn:org.ops4j.pax.web/features/${upstream.version}/xml/features
 	</description>
+	<properties>
+		<revision>${pax.web.features.tesb.version}</revision>
+	</properties>
 
 	<build>
 		<resources>
