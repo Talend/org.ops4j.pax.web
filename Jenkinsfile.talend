@@ -1,0 +1,4 @@
+@Library('esb') _
+Fork(
+        MVN_MODULES: 'org.ops4j.pax:web,:pax-web-spi,:pax-web-tomcat-common,:pax-web-jsp,:pax-web-websocket,:pax-web-runtime,:pax-web-extender-whiteboard,:pax-web-extender-war,:pax-web-jetty,:pax-web-jetty-bundle,:pax-web-tomcat,:pax-web-tomcat-websocket,:pax-web-tomcat-bundle,:pax-web-undertow,:pax-web-undertow-websocket,:pax-web-undertow-bundle,:pax-web-resources,:samples,:pax-web-itest'
+)

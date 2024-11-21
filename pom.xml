@@ -43,9 +43,9 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:git@github.com:ops4j/org.ops4j.pax.web.git</connection>
-		<developerConnection>scm:git:git@github.com:ops4j/org.ops4j.pax.web.git</developerConnection>
-		<url>https://github.com/ops4j/org.ops4j.pax.web/tree/main</url>
+		<connection>scm:git:https://github.com/Talend/org.ops4j.pax.web.git</connection>
+		<developerConnection>scm:git:https://github.com/Talend/org.ops4j.pax.web.git</developerConnection>
+		<url>https://github.com/Talend/org.ops4j.pax.web</url>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -703,6 +703,7 @@
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<extensions>false</extensions>
 				<configuration>
 					<autoReleaseAfterClose>false</autoReleaseAfterClose>
 					<stagingProgressTimeoutMinutes>30</stagingProgressTimeoutMinutes>
@@ -3409,6 +3410,8 @@
 								<exclude>**/node_modules/**/*</exclude>
 								<exclude>**/frontend/generated/**/*</exclude>
 								<exclude>**/*.yaml</exclude>
+								<!-- build file -->
+								<exclude>Jenkinsfile.talend</exclude>
 							</excludes>
 						</configuration>
 					</plugin>
