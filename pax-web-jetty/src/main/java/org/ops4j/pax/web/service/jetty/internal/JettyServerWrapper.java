@@ -123,6 +123,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.InetSocketAddress;
 import java.net.URL;
@@ -366,9 +368,19 @@ class JettyServerWrapper implements BatchVisitor {
 			// PAXWEB-1112: TCCL to perform static initialization of XmlConfiguration with proper TCCL
 			// needed for org.eclipse.jetty.xml.XmlConfiguration.__factoryLoader
 			Thread.currentThread().setContextClassLoader(jettyXmlCl);
-			URL emptyConfig = getClass().getResource("/jetty-empty.xml");
-			if (emptyConfig != null) {
-				new XmlConfiguration(jettyFactory.newResource(emptyConfig));
+			Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+			String fileName = "/jetty-empty.xml";
+			File emptyConfigFile = bundle.getDataFile(fileName);
+			if (emptyConfigFile != null) {
+				// by default the file is not physically there
+				if (!emptyConfigFile.createNewFile()) {
+					try (InputStream resourceStream = bundle.getResource(fileName).openStream();
+						 FileOutputStream fos = new FileOutputStream(emptyConfigFile)) {
+						resourceStream.transferTo(fos);
+					}
+				}
+				URL emptyConfigURL = emptyConfigFile.toURL();
+				new XmlConfiguration(jettyFactory.newResource(emptyConfigURL));
 			}
 
 			// to load HttpFieldPreEncoder both for HTTP/1.1 and HTTP/2 we need to call static block
@@ -376,7 +388,6 @@ class JettyServerWrapper implements BatchVisitor {
 			ClassLoader tccl = Thread.currentThread().getContextClassLoader();
 			try {
 				OsgiServletContextClassLoader cl = new OsgiServletContextClassLoader();
-				Bundle bundle = FrameworkUtil.getBundle(this.getClass());
 				if (bundle != null) {
 					// non unit-test
 					cl.addBundle(bundle);
