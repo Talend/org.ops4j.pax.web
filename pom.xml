@@ -3224,10 +3224,10 @@
 		<!-- 128 CMPN Web Applications Specification -->
 		<module>pax-web-extender-war</module>
 
-<!--		<module>pax-web-fragments</module>-->
+		<module>pax-web-fragments</module>
 
-<!--		<module>pax-web-karaf</module>-->
-<!--		<module>pax-web-deployer</module>-->
+		<module>pax-web-karaf</module>
+		<module>pax-web-deployer</module>
 
 <!--		<module>pax-web-deployer</module>-->
 
@@ -3245,7 +3245,7 @@
 		<module>pax-web-undertow-websocket</module>
 		<module>pax-web-undertow-bundle</module>
 
-<!--		<module>pax-web-features</module>-->
+		<module>pax-web-features</module>
 
 <!--		<module>pax-web-archetypes</module>-->
 <!--		<module>pax-web-jaas</module>-->
@@ -3261,8 +3261,8 @@
 <!--		<module>pax-web-manual</module>-->
 
 		<!-- Keycloak support -->
-<!--		<module>pax-web-keycloak18</module>-->
-<!--		<module>pax-web-keycloak</module>-->
+		<module>pax-web-keycloak18</module>
+		<module>pax-web-keycloak</module>
 
     </modules>
 
