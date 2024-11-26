@@ -370,9 +370,10 @@ class JettyServerWrapper implements BatchVisitor {
 			// PAXWEB-1112: TCCL to perform static initialization of XmlConfiguration with proper TCCL
 			// needed for org.eclipse.jetty.xml.XmlConfiguration.__factoryLoader
 			Thread.currentThread().setContextClassLoader(jettyXmlCl);
-			try (InputStream inStream = getClass().getResourceAsStream("/jetty-empty.xml")) {
+			String emptyConfigFile = "jetty-empty.xml";
+			try (InputStream inStream = getClass().getResourceAsStream("/" + emptyConfigFile)) {
 				if (inStream != null) {
-					Path emptyConfig = Files.createTempFile("jetty-empty", ".tmp");
+					Path emptyConfig = Files.createTempFile(emptyConfigFile, ".tmp");
 					try (FileOutputStream outStream = new FileOutputStream(new File(emptyConfig.toUri()))) {
 						inStream.transferTo(outStream);
 						new XmlConfiguration(jettyFactory.newResource(emptyConfig.toUri().toURL()));
