@@ -123,9 +123,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.InetSocketAddress;
+import java.net.URI;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -366,9 +371,16 @@ class JettyServerWrapper implements BatchVisitor {
 			// PAXWEB-1112: TCCL to perform static initialization of XmlConfiguration with proper TCCL
 			// needed for org.eclipse.jetty.xml.XmlConfiguration.__factoryLoader
 			Thread.currentThread().setContextClassLoader(jettyXmlCl);
-			URL emptyConfig = getClass().getResource("/jetty-empty.xml");
-			if (emptyConfig != null) {
-				new XmlConfiguration(jettyFactory.newResource(emptyConfig));
+			try (InputStream inStream = getClass().getResourceAsStream("/jetty-empty.xml")) {
+				if (inStream != null) {
+					Path emptyConfig = Files.createTempFile(getClass().getName(), ".tmp");
+					try (FileOutputStream outStream = new FileOutputStream(new File(emptyConfig.toUri()))) {
+						inStream.transferTo(outStream);
+						new XmlConfiguration(jettyFactory.newResource(emptyConfig.toUri().toURL()));
+					} finally {
+						Files.delete(emptyConfig);
+					}
+				}
 			}
 
 			// to load HttpFieldPreEncoder both for HTTP/1.1 and HTTP/2 we need to call static block
