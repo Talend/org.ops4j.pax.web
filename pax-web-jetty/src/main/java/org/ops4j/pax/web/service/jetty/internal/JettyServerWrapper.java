@@ -372,7 +372,7 @@ class JettyServerWrapper implements BatchVisitor {
 			Thread.currentThread().setContextClassLoader(jettyXmlCl);
 			try (InputStream inStream = getClass().getResourceAsStream("/jetty-empty.xml")) {
 				if (inStream != null) {
-					Path emptyConfig = Files.createTempFile(getClass().getName(), ".tmp");
+					Path emptyConfig = Files.createTempFile("jetty-empty", ".tmp");
 					try (FileOutputStream outStream = new FileOutputStream(new File(emptyConfig.toUri()))) {
 						inStream.transferTo(outStream);
 						new XmlConfiguration(jettyFactory.newResource(emptyConfig.toUri().toURL()));
