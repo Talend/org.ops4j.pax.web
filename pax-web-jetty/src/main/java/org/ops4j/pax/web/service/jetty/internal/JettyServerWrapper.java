@@ -374,10 +374,12 @@ class JettyServerWrapper implements BatchVisitor {
 			if (emptyConfigFile != null) {
 				// by default the file is not physically there
 				if (!emptyConfigFile.createNewFile()) {
-					try (InputStream resourceStream = bundle.getResource(fileName).openStream();
-						 FileOutputStream fos = new FileOutputStream(emptyConfigFile)) {
-						resourceStream.transferTo(fos);
-					}
+					emptyConfigFile.delete();
+					emptyConfigFile.createNewFile();
+				}
+				try (InputStream resourceStream = bundle.getResource(fileName).openStream();
+					 FileOutputStream fos = new FileOutputStream(emptyConfigFile)) {
+					resourceStream.transferTo(fos);
 				}
 				URL emptyConfigURL = emptyConfigFile.toURL();
 				new XmlConfiguration(jettyFactory.newResource(emptyConfigURL));
