@@ -378,6 +378,8 @@ class JettyServerWrapper implements BatchVisitor {
 						inStream.transferTo(outStream);
 						new XmlConfiguration(jettyFactory.newResource(emptyConfig.toUri().toURL()));
 					} finally {
+						// the tmp file can be safely deleted as it was only used to initialize XmlConfiguration,
+						// and no actual configuration will be applied from it
 						Files.delete(emptyConfig);
 					}
 				}
