@@ -353,7 +353,7 @@ javax.servlet.context.tempdir = ${karaf.data}/pax-web/tmp
 		<feature>pax-web-core</feature>
 
 		<bundle start-level="30" dependency="true">mvn:jakarta.annotation/jakarta.annotation-api/${dependency.jakarta.annotation-api}</bundle>
-		<bundle start-level="30" dependency="true">mvn:com.sun.activation/javax.activation/${dependency.com.sun.activation}</bundle>
+		<bundle start-level="30" dependency="true">mvn:jakarta.activation/jakarta.activation-api/${dependency.com.sun.activation}</bundle>
 		<bundle start-level="30">wrap:mvn:jakarta.servlet/jakarta.servlet-api/${dependency.jakarta.servlet-api}$overwrite=merge&amp;Bundle-SymbolicName=jakarta.servlet-api-61</bundle>
 		<bundle start-level="30" start="false">mvn:org.ops4j.pax.web/pax-web-compatibility-servlet5/${project.version}</bundle>
 		<bundle start-level="30" dependency="true">wrap:mvn:jakarta.xml.bind/jakarta.xml.bind-api/${dependency.jakarta.xml.bind-api}$overwrite=merge&amp;Bundle-SymbolicName=jakarta.xml.bind-api-40</bundle>
