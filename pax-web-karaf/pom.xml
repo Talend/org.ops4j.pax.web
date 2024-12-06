@@ -124,8 +124,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
-			<artifactId>osgi.cmpn</artifactId>
-			<version>7.0.0</version>
+			<artifactId>org.osgi.service.jakartars</artifactId>
+			<version>${dependency.org.osgi.service.jakartars}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.servlet</artifactId>
+			<version>${dependency.org.osgi.service.servlet}</version>
 			<scope>provided</scope>
 		</dependency>
 
