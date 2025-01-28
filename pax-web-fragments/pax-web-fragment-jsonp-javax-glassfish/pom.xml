@@ -31,10 +31,10 @@
 	<artifactId>pax-web-fragment-jsonp-javax-glassfish</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>OPS4J Pax Web - JSON-P Javax (glassfish) with SPI-FLY requirements</name>
+	<name>OPS4J Pax Web - JSON-P Javax (GlassFish) providing JavaJSONP capability</name>
 
 	<description>
-		This fragment adds SPI-FLY requirements for org.apache.johnzon:johnzon-core.
+		This fragment adds SPI-FLY requirements for org.apache.johnzon/johnzon-core
 	</description>
 
 	<build>
