@@ -200,7 +200,7 @@
 		<dependency.jakarta.validation-api>3.0.2</dependency.jakarta.validation-api>
 		<dependency.jakarta.websocket-api>2.1.1</dependency.jakarta.websocket-api>
 		<dependency.jakarta.ws.rs-api>3.1.0</dependency.jakarta.ws.rs-api>
-		<dependency.jakarta.xml.bind-api>4.0.1</dependency.jakarta.xml.bind-api>
+		<dependency.jakarta.xml.bind-api>4.0.2</dependency.jakarta.xml.bind-api>
 		<dependency.jakarta.xml.soap-api>3.0.1</dependency.jakarta.xml.soap-api>
 		<dependency.jakarta.xml.ws-api>4.0.1</dependency.jakarta.xml.ws-api>
 
