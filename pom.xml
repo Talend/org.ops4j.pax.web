@@ -173,8 +173,8 @@
 		<dependency.commons-fileupload>1.5</dependency.commons-fileupload>
 		<dependency.commons-io>2.16.1</dependency.commons-io>
 		<dependency.com.fasterxml.classmate>1.7.0</dependency.com.fasterxml.classmate>
-		<dependency.com.fasterxml.jackson.core>2.18.2</dependency.com.fasterxml.jackson.core>
-		<dependency.com.fasterxml.jackson.core.databind>2.18.2</dependency.com.fasterxml.jackson.core.databind>
+		<dependency.com.fasterxml.jackson.core>2.18.3</dependency.com.fasterxml.jackson.core>
+		<dependency.com.fasterxml.jackson.core.databind>2.18.3</dependency.com.fasterxml.jackson.core.databind>
 		<dependency.com.fasterxml.woodstox>6.7.0</dependency.com.fasterxml.woodstox>
 		<dependency.com.sun.activation>2.0.1</dependency.com.sun.activation>
 		<dependency.com.sun.istack>4.2.0</dependency.com.sun.istack>
@@ -200,7 +200,7 @@
 		<dependency.jakarta.validation-api>3.0.2</dependency.jakarta.validation-api>
 		<dependency.jakarta.websocket-api>2.1.1</dependency.jakarta.websocket-api>
 		<dependency.jakarta.ws.rs-api>3.1.0</dependency.jakarta.ws.rs-api>
-		<dependency.jakarta.xml.bind-api>4.0.1</dependency.jakarta.xml.bind-api>
+		<dependency.jakarta.xml.bind-api>4.0.2</dependency.jakarta.xml.bind-api>
 		<dependency.jakarta.xml.soap-api>3.0.1</dependency.jakarta.xml.soap-api>
 		<dependency.jakarta.xml.ws-api>4.0.1</dependency.jakarta.xml.ws-api>
 
