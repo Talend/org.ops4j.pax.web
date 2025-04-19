@@ -520,8 +520,8 @@ javax.servlet.context.tempdir = ${karaf.data}/pax-web/tmp
 		<bundle dependency="true">mvn:org.apache.httpcomponents/httpclient-osgi/${dependency.org.apache.httpcomponents.client4}</bundle>
 
 		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${dependency.com.fasterxml.jackson.core}</bundle>
-		<bundle dependency="true">wrap:mvn:com.fasterxml.jackson.core/jackson-core/${dependency.com.fasterxml.jackson.core}$overwrite=merge&amp;SPI-Provider=*</bundle>
-		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${dependency.com.fasterxml.jackson.core.databind}</bundle>
+		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${dependency.com.fasterxml.jackson.core}.spiprov</bundle>
+		<bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${dependency.com.fasterxml.jackson.core.databind}.spiprov</bundle>
 
 		<bundle dependency="true">mvn:org.bouncycastle/bcprov-jdk18on/${dependency.org.bouncycastle}</bundle>
 		<bundle dependency="true">mvn:org.bouncycastle/bcpkix-jdk18on/${dependency.org.bouncycastle}</bundle>
