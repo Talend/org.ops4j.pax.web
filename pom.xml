@@ -176,13 +176,14 @@
 		<dependency.com.fasterxml.jackson.core>2.18.3</dependency.com.fasterxml.jackson.core>
 		<dependency.com.fasterxml.jackson.core.databind>2.18.3</dependency.com.fasterxml.jackson.core.databind>
 		<dependency.com.fasterxml.woodstox>6.7.0</dependency.com.fasterxml.woodstox>
+		<dependency.jakarta.activation-api>2.1.3</dependency.jakarta.activation-api>
 		<dependency.com.sun.activation>2.0.1</dependency.com.sun.activation>
 		<dependency.com.sun.istack>4.2.0</dependency.com.sun.istack>
 		<dependency.com.sun.xml.bind>4.0.4</dependency.com.sun.xml.bind>
 
 		<!--		<dependency.io.gatling.highcharts>3.6.1</dependency.io.gatling.highcharts>-->
 
-		<dependency.io.undertow>2.3.10.Final</dependency.io.undertow>
+		<dependency.io.undertow>2.3.18.Final</dependency.io.undertow>
 
 		<dependency.jakarta.annotation-api>2.1.1</dependency.jakarta.annotation-api>
 		<dependency.jakarta.authentication-api>3.0.0</dependency.jakarta.authentication-api>
@@ -2182,6 +2183,11 @@
 				<groupId>jakarta.inject</groupId>
 				<artifactId>jakarta.inject-api</artifactId>
 				<version>${dependency.jakarta.inject-api}</version>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.activation</groupId>
+				<artifactId>jakarta.activation-api</artifactId>
+				<version>${dependency.jakarta.activation-api}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.sun.activation</groupId>
