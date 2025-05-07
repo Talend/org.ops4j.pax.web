@@ -336,14 +336,14 @@ javax.servlet.context.tempdir = ${karaf.data}/pax-web/tmp
 		<bundle start="false" start-level="25">mvn:org.ops4j.pax.web/pax-web-tomcat-keycloak18/${project.version}</bundle>
 	</feature> -->
 
-	<feature name="pax-web-tomcat-keycloak" description="Keycloak 20.x+ Tomcat bundles" version="${project.version}">
-		<!-- This feature doesn't require any external feature repository -->
+	<!-- <feature name="pax-web-tomcat-keycloak" description="Keycloak 20.x+ Tomcat bundles" version="${project.version}">
+		--><!-- This feature doesn't require any external feature repository --><!--
 		<feature>keycloak-adapter-core</feature>
 		<feature>pax-web-core</feature>
 		<feature>pax-web-http-tomcat</feature>
 
 		<bundle start="false" start-level="25">mvn:org.ops4j.pax.web/pax-web-tomcat-keycloak/${project.version}</bundle>
-	</feature>
+	</feature> -->
 
 	<feature name="pax-web-undertow" description="Undertow 2 bundles" version="${dependency.io.undertow}">
 		<details>
