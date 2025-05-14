@@ -123,6 +123,7 @@
 		<bundle start-level="30">mvn:org.eclipse.jetty.ee10.websocket/jetty-ee10-websocket-jakarta-common/${dependency.org.eclipse.jetty}</bundle>
 		<bundle start-level="30">mvn:org.eclipse.jetty.ee10.websocket/jetty-ee10-websocket-jakarta-client/${dependency.org.eclipse.jetty}</bundle>
 		<bundle start-level="30">mvn:org.eclipse.jetty.ee10.websocket/jetty-ee10-websocket-jakarta-server/${dependency.org.eclipse.jetty}</bundle>
+		<bundle start-level="30">mvn:org.eclipse.jetty.ee10.websocket/jetty-ee10-websocket-jetty-server/${dependency.org.eclipse.jetty}</bundle>
 		<bundle start-level="30">mvn:org.eclipse.jetty.ee10/jetty-ee10-webapp/${dependency.org.eclipse.jetty}</bundle>
 		<!-- <bundle start-level="30">mvn:org.eclipse.jetty.ee10.websocket/jetty-ee10-websocket-jetty-client-webapp/${dependency.org.eclipse.jetty}</bundle> -->
 		<!-- <bundle start-level="30">mvn:org.eclipse.jetty.ee10.websocket/jetty-ee10-websocket-jakarta-client-webapp/${dependency.org.eclipse.jetty}</bundle> -->
