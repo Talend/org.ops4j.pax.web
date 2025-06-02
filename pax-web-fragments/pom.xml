@@ -46,6 +46,8 @@
 <!--		<module>pax-web-compatibility-jpa2</module>-->
 		<module>pax-web-compatibility-servlet</module>
 		<module>pax-web-compatibility-websocket</module>
+		<module>pax-web-compatibility-jaxb3</module>
+		<module>pax-web-compatibility-servlet5</module>
 	</modules>
 
 </project>

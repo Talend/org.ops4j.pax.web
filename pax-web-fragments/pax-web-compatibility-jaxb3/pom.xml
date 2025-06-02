@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2021 OPS4J.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.ops4j.pax.web</groupId>
+		<artifactId>pax-web-fragments</artifactId>
+		<version>11.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>org.ops4j.pax.web</groupId>
+	<artifactId>pax-web-compatibility-jaxb3</artifactId>
+	<packaging>bundle</packaging>
+
+	<name>OPS4J Pax Web - JAXB API 3.0 compatibility</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Fragment-Host>jakarta.xml.bind-api</Fragment-Host>
+						<Export-Package>
+							jakarta.xml.bind;uses:="jakarta.xml.bind.annotation.adapters,jakarta.xml.bind.attachment,javax.xml.namespace,javax.xml.stream,javax.xml.transform,javax.xml.validation,org.w3c.dom,org.xml.sax";version="3.0.9",
+							jakarta.xml.bind.annotation;uses:="jakarta.xml.bind,javax.xml.parsers,javax.xml.transform,javax.xml.transform.dom,org.w3c.dom";version="3.0.9",
+							jakarta.xml.bind.annotation.adapters;version="3.0.9",
+							jakarta.xml.bind.attachment;uses:="jakarta.activation";version="3.0.9",
+							jakarta.xml.bind.helpers;uses:="jakarta.xml.bind,jakarta.xml.bind.annotation.adapters,jakarta.xml.bind.attachment,javax.xml.stream,javax.xml.transform,javax.xml.validation,org.w3c.dom,org.xml.sax";version="3.0.9",
+							jakarta.xml.bind.util;uses:="jakarta.xml.bind,javax.xml.transform.sax";version="3.0.9"
+						</Export-Package>
+						<Provide-Capability><![CDATA[
+							osgi.contract;osgi.contract=JakartaXmlBind;uses:="jakarta.xml.bind,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapter,jakarta.xml.bind,attachment,jakarta.xml.bind.helpers,jakarta.xml.bind.util";
+								version:List<Version>="4.0,3.0"
+						]]></Provide-Capability>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<!-- JakartaEE -->
+
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>4.0.2</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
