@@ -3367,6 +3367,7 @@
 								<exclude>**/maven-metadata-local.xml</exclude>
 								<exclude>**/*.xsd</exclude>
 								<exclude>**/*.svg</exclude>
+								<exclude>**/mailcap</exclude>
 								<!--manual resources -->
 								<exclude>**/*.css</exclude>
 								<exclude>**/*.ssp</exclude>

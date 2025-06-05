@@ -48,6 +48,7 @@
 		<module>pax-web-compatibility-jaxrs2</module>
 		<module>pax-web-compatibility-jaxb3</module>
 		<!-- These are other support fragments -->
+		<module>pax-web-fragment-jakarta-activation-angus</module>
 		<module>pax-web-fragment-jsonp-javax-glassfish</module>
 		<module>pax-web-fragment-myfaces-inject</module>
 		<module>pax-web-fragment-myfaces-spifly</module>
