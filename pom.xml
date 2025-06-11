@@ -28,7 +28,7 @@
 
 	<groupId>org.ops4j.pax</groupId>
 	<artifactId>web</artifactId>
-	<version>11.0.1-SNAPSHOT</version>
+	<version>11.0.0.1</version>
 	<packaging>pom</packaging>
 
 	<name>OPS4J Pax Web</name>
@@ -696,19 +696,24 @@
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
 				<configuration>
-					<!-- till we switch to new parent... -->
 					<skipStaging>true</skipStaging>
 					<skipLocalStaging>true</skipLocalStaging>
 					<skipRemoteStaging>true</skipRemoteStaging>
 					<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.google.guava</groupId>
+						<artifactId>guava</artifactId>
+						<version>33.2.1-jre</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.sonatype.central</groupId>
 				<artifactId>central-publishing-maven-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<!-- you need <server> with such <id> in ~/.m2/repository -->
 					<publishingServerId>ossrh-central</publishingServerId>
 					<deploymentName>pax-web-${project.version}</deploymentName>
 					<waitUntil>uploaded</waitUntil>
