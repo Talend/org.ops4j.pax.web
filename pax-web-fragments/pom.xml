@@ -46,6 +46,8 @@
 <!--		<module>pax-web-compatibility-jpa2</module>-->
 		<module>pax-web-compatibility-servlet</module>
 		<module>pax-web-compatibility-websocket</module>
+		<module>pax-web-fragment-jakarta-activation-angus</module>
+		<module>pax-web-fragment-jsonp-javax-glassfish</module>
 	</modules>
 
 </project>

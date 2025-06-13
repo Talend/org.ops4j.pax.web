@@ -46,7 +46,7 @@
 				<!--
 					see migration guide: https://gist.github.com/abelsromero/263ae7703f4bc5efebbfd16d9e407c28
 					manual invocation from src/docs/asciidoc:
-						$ asciidoctor -b html5 -D ../../../target/generated-docs-asciidoctor -a version=8.0.0-SNAPSHOT index.adoc
+						$ asciidoctor -b html5 -D ../../../target/generated-docs-asciidoctor -a version=11.0.0 index.adoc
 				-->
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>

@@ -28,15 +28,10 @@
 	</parent>
 
 	<groupId>org.ops4j.pax.web</groupId>
-	<artifactId>pax-web-compatibility-jpa2</artifactId>
+	<artifactId>pax-web-compatibility-jaxb3</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>OPS4J Pax Web - JPA 2.2 compatibility</name>
-
-	<description>
-		This fragment bundle can be used together with _canonical_ (IMO) jakarta.persistence-api instead of
-		more OSGi aware geronimo-jpa_2.2_spec (that declares additional caps/reqs)
-	</description>
+	<name>OPS4J Pax Web - JAXB API 3.0 compatibility</name>
 
 	<build>
 		<plugins>
@@ -46,10 +41,18 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Fragment-Host>jakarta.persistence-api</Fragment-Host>
+						<Fragment-Host>jakarta.xml.bind-api;bundle-version="${dependency.jakarta.xml.bind-api}"</Fragment-Host>
+						<Export-Package>
+							jakarta.xml.bind;uses:="jakarta.xml.bind.annotation.adapters,jakarta.xml.bind.attachment,javax.xml.namespace,javax.xml.stream,javax.xml.transform,javax.xml.validation,org.w3c.dom,org.xml.sax";version="3.0.9",
+							jakarta.xml.bind.annotation;uses:="jakarta.xml.bind,javax.xml.parsers,javax.xml.transform,javax.xml.transform.dom,org.w3c.dom";version="3.0.9",
+							jakarta.xml.bind.annotation.adapters;version="3.0.9",
+							jakarta.xml.bind.attachment;uses:="jakarta.activation";version="3.0.9",
+							jakarta.xml.bind.helpers;uses:="jakarta.xml.bind,jakarta.xml.bind.annotation.adapters,jakarta.xml.bind.attachment,javax.xml.stream,javax.xml.transform,javax.xml.validation,org.w3c.dom,org.xml.sax";version="3.0.9",
+							jakarta.xml.bind.util;uses:="jakarta.xml.bind,javax.xml.transform.sax";version="3.0.9"
+						</Export-Package>
 						<Provide-Capability><![CDATA[
-							osgi.contract;osgi.contract=JavaJPA;uses:="javax.persistence,javax.persistence.spi,javax.persistence.metamodel,javax.persistence.criteria";
-								version:List<Version>="2.2,2.1,2.0,1.0"
+							osgi.contract;osgi.contract=JakartaXmlBind;uses:="jakarta.xml.bind,jakarta.xml.bind.annotation,jakarta.xml.bind.annotation.adapter,jakarta.xml.bind,attachment,jakarta.xml.bind.helpers,jakarta.xml.bind.util";
+								version:List<Version>="4.0,3.0"
 						]]></Provide-Capability>
 					</instructions>
 				</configuration>
@@ -62,8 +65,9 @@
 		<!-- JakartaEE -->
 
 		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>4.0.2</version>
 		</dependency>
 
 	</dependencies>
