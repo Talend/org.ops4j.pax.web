@@ -529,16 +529,16 @@
 
 				<!-- Other plugins -->
 
-				<plugin>
+				<!-- <plugin>
 					<groupId>org.sonatype.plugins</groupId>
 					<artifactId>nexus-staging-maven-plugin</artifactId>
 					<version>${plugin.sonatype.nexus-staging-maven-plugin}</version>
-				</plugin>
-				<plugin>
+				</plugin> -->
+				<!-- <plugin>
 					<groupId>org.sonatype.central</groupId>
 					<artifactId>central-publishing-maven-plugin</artifactId>
 					<version>${plugin.sonatype.central-publishing-maven-plugin}</version>
-				</plugin>
+				</plugin> -->
 <!--				<plugin>-->
 <!--					<groupId>io.gatling</groupId>-->
 <!--					<artifactId>gatling-maven-plugin</artifactId>-->
