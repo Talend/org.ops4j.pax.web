@@ -1,4 +1,4 @@
 @Library('esb') _
 Fork(
-        MVN_MODULES: 'org.ops4j.pax.web:pax-web-compatibility-jaxb3,org.ops4j.pax.web:jakarta-activation-angus,org.ops4j.pax.web:pax-web-fragment-jsonp-javax-glassfish'
+        MVN_MODULES: 'org.ops4j.pax.web:pax-web-fragments,org.ops4j.pax.web:pax-web-compatibility-jaxb3,org.ops4j.pax.web:jakarta-activation-angus,org.ops4j.pax.web:pax-web-fragment-jsonp-javax-glassfish'
 )
