@@ -709,7 +709,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<!-- you need <server> with such <id> in ~/.m2/repository -->
-					<publishingServerId>TalendOpenSourceRelease</publishingServerId>
+					<publishingServerId>talend-nexus-deployment</publishingServerId>
 					<deploymentName>pax-web-${project.version}</deploymentName>
 					<waitUntil>uploaded</waitUntil>
 				</configuration>
