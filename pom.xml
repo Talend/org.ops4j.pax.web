@@ -709,7 +709,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<!-- you need <server> with such <id> in ~/.m2/repository -->
-					<publishingServerId>ossrh-central</publishingServerId>
+					<publishingServerId>TalendOpenSourceRelease</publishingServerId>
 					<deploymentName>pax-web-${project.version}</deploymentName>
 					<waitUntil>uploaded</waitUntil>
 				</configuration>
@@ -3040,6 +3040,8 @@
 								<exclude>**/node_modules/**/*</exclude>
 								<exclude>**/frontend/generated/**/*</exclude>
 								<exclude>**/*.yaml</exclude>
+								<!-- build file -->
+								<exclude>Jenkinsfile.talend</exclude>
 							</excludes>
 						</configuration>
 					</plugin>
