@@ -2993,6 +2993,7 @@
 								<exclude>**/*.css</exclude>
 								<exclude>**/*.ssp</exclude>
 								<exclude>**/*.conf</exclude>
+								<exclude>**/mailcap</exclude>
 								<!-- test manifests -->
 								<exclude>**/*.mf</exclude>
 								<exclude>**/*.MF</exclude>
