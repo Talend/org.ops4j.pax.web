@@ -692,17 +692,17 @@
 
 			<!-- Other plugins -->
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
 				<configuration>
-					<!-- till we switch to new parent... -->
+					--><!-- till we switch to new parent... --><!--
 					<skipStaging>true</skipStaging>
 					<skipLocalStaging>true</skipLocalStaging>
 					<skipRemoteStaging>true</skipRemoteStaging>
 					<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
 				</configuration>
-			</plugin>
+			</plugin> -->
 			<!-- <plugin>
 				<groupId>org.sonatype.central</groupId>
 				<artifactId>central-publishing-maven-plugin</artifactId>
