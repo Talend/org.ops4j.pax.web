@@ -703,17 +703,17 @@
 					<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
 				</configuration>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.sonatype.central</groupId>
 				<artifactId>central-publishing-maven-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
-					<!-- you need <server> with such <id> in ~/.m2/repository -->
+					--><!-- you need <server> with such <id> in ~/.m2/repository --><!--
 					<publishingServerId>talend-nexus-deployment</publishingServerId>
 					<deploymentName>pax-web-${project.version}</deploymentName>
 					<waitUntil>uploaded</waitUntil>
 				</configuration>
-			</plugin>
+			</plugin> -->
 
 		</plugins>
 	</build>
