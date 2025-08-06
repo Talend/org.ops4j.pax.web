@@ -28,14 +28,13 @@
 	</parent>
 
 	<groupId>org.ops4j.pax.web</groupId>
-	<artifactId>pax-web-compatibility-jpa2</artifactId>
+	<artifactId>pax-web-fragment-jsonp-javax-glassfish</artifactId>
 	<packaging>bundle</packaging>
 
-	<name>OPS4J Pax Web - JPA 2.2 compatibility</name>
+	<name>OPS4J Pax Web - JSON-P Javax (GlassFish) providing JavaJSONP capability</name>
 
 	<description>
-		This fragment bundle can be used together with _canonical_ (IMO) jakarta.persistence-api instead of
-		more OSGi aware geronimo-jpa_2.2_spec (that declares additional caps/reqs)
+		This fragment adds SPI-FLY requirements for org.apache.johnzon/johnzon-core
 	</description>
 
 	<build>
@@ -46,26 +45,15 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Fragment-Host>jakarta.persistence-api</Fragment-Host>
+						<Fragment-Host>org.glassfish.javax.json</Fragment-Host>
 						<Provide-Capability><![CDATA[
-							osgi.contract;osgi.contract=JavaJPA;uses:="javax.persistence,javax.persistence.spi,javax.persistence.metamodel,javax.persistence.criteria";
-								version:List<Version>="2.2,2.1,2.0,1.0"
+							osgi.contract;osgi.contract=JavaJSONP;uses:="javax.json,javax.json.spi,javax.json.stream";
+							version:List<Version>="1.1,1.0"
 						]]></Provide-Capability>
 					</instructions>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-	<dependencies>
-
-		<!-- JakartaEE -->
-
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-		</dependency>
-
-	</dependencies>
 
 </project>
