@@ -48,6 +48,12 @@
 		<module>pax-web-compatibility-servlet</module>
 		<module>pax-web-compatibility-servlet31</module>
 		<module>pax-web-compatibility-websocket</module>
+		<module>pax-web-compatibility-wss4j-bindings</module>
+		<module>pax-web-compatibility-wss4j-common</module>
+		<module>pax-web-compatibility-wss4j-dom</module>
+		<module>pax-web-compatibility-wss4j-policy</module>
+		<module>pax-web-compatibility-wss4j-policy-stax</module>
+		<module>pax-web-compatibility-wss4j-stax</module>
 		<module>pax-web-fragment-jakarta-activation-angus</module>
 		<module>pax-web-fragment-jsonp-javax-glassfish</module>
 	</modules>
