@@ -101,6 +101,8 @@
 							org.slf4j;version="[1.7,3)",
 							org.osgi.service.log;version="[1.5,2)",
 
+							org.talend.cxf.crypto.config;version="[8,9)";resolution:=optional,
+
 							<!-- other required packages -->
 							javax.xml.parsers,
 							org.w3c.dom,

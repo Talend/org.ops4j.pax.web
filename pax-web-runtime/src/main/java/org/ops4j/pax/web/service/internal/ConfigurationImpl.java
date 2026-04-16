@@ -499,7 +499,7 @@ public class ConfigurationImpl extends PropertyStore implements Configuration {
 
 		@Override
 		public String getSslKeystorePassword() {
-			return resolveStringProperty(PaxWebConfig.PID_CFG_SSL_KEYSTORE_PASSWORD);
+			return VaultAccess.resolveValue(resolveStringProperty(PaxWebConfig.PID_CFG_SSL_KEYSTORE_PASSWORD));
 		}
 
 		@Override
@@ -514,7 +514,7 @@ public class ConfigurationImpl extends PropertyStore implements Configuration {
 
 		@Override
 		public String getSslKeyPassword() {
-			return resolveStringProperty(PaxWebConfig.PID_CFG_SSL_KEY_PASSWORD);
+			return VaultAccess.resolveValue(resolveStringProperty(PaxWebConfig.PID_CFG_SSL_KEY_PASSWORD));
 		}
 
 		@Override
@@ -534,7 +534,7 @@ public class ConfigurationImpl extends PropertyStore implements Configuration {
 
 		@Override
 		public String getTruststorePassword() {
-			return resolveStringProperty(PaxWebConfig.PID_CFG_SSL_TRUSTSTORE_PASSWORD);
+			return VaultAccess.resolveValue(resolveStringProperty(PaxWebConfig.PID_CFG_SSL_TRUSTSTORE_PASSWORD));
 		}
 
 		@Override
@@ -699,7 +699,7 @@ public class ConfigurationImpl extends PropertyStore implements Configuration {
 
 		@Override
 		public String getEncMasterPassword() {
-			return resolveStringProperty(PaxWebConfig.PID_CFG_ENC_MASTERPASSWORD);
+			return VaultAccess.resolveValue(resolveStringProperty(PaxWebConfig.PID_CFG_ENC_MASTERPASSWORD));
 		}
 
 		@Override
