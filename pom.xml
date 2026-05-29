@@ -561,11 +561,11 @@
 
 				<!-- Other plugins -->
 
-				<!-- <plugin>
+				<plugin>
 					<groupId>org.sonatype.plugins</groupId>
 					<artifactId>nexus-staging-maven-plugin</artifactId>
 					<version>${plugin.sonatype.nexus-staging-maven-plugin}</version>
-				</plugin> -->
+				</plugin>
 				<!-- <plugin>
 					<groupId>org.sonatype.central</groupId>
 					<artifactId>central-publishing-maven-plugin</artifactId>
@@ -724,17 +724,15 @@
 
 			<!-- Other plugins -->
 
-			<!-- <plugin>
+			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<extensions>false</extensions>
 				<configuration>
-					--><!-- till we switch to new parent... --><!--
-					<skipStaging>true</skipStaging>
-					<skipLocalStaging>true</skipLocalStaging>
-					<skipRemoteStaging>true</skipRemoteStaging>
-					<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+					<autoReleaseAfterClose>false</autoReleaseAfterClose>
+					<stagingProgressTimeoutMinutes>30</stagingProgressTimeoutMinutes>
 				</configuration>
-			</plugin> -->
+			</plugin>
 			<!-- <plugin>
 				<groupId>org.sonatype.central</groupId>
 				<artifactId>central-publishing-maven-plugin</artifactId>
